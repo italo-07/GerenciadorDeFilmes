@@ -28,143 +28,52 @@
                     <h2 id="title" class="text-center">Cadastro de Filmes</h2>
                 </div>
                 <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12 md-margin ">
-                    <form action="#" method="post">
+                    <form id="formFilme" method="post">
                         <div class="form-group">
                             <label for="nomeFilme">Nome do Filme:</label>
-                            <input type="text" name="nomeFilme" id="nomeFilme" class="form-control" placeholder="Nome do Filme" onkeyup="validate()" required="required">
+                            <input type="text" name="nomeFilme" id="nomeFilme" class="form-control" placeholder="Nome do Filme" required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nomeOriginal">Nome Original do Filme:</label>
+                            <input type="text" name="nomeOriginal" id="nomeOriginal" class="form-control" placeholder="Nome Original do Filme" required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cartaz">Imagem em Cartaz:</label>
+                            <input type="text" name="cartaz" id="cartaz" class="form-control" placeholder="Link da Imagem" required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Sinopse do Filme:</label>
+                            <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição do Filme" required="required">
                         </div>
 
                         <div class="form-group">
                             <label for="cine">Cinema:</label>
-                            <select id="cinemaFilme" name="cine" class="form-control" required="required">
+                            <select id="cinemaFilme" name="cinemaFilme" class="form-control" required="required">
                                 <option value="" selected hidden>Selecione...</option>
 
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="tipo">Selecione o Tipo:</label>
-                            <select name="tipo" class="form-control" id="tipo" onkeyup="validate()" required="required">
-                                <option value="" selected hidden>Selecione...</option>
-                                <option>Dublado</option>
-                                <option>Legendado</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tipo2">Tipo da Sessão:</label>
-                            <select name="tipo2" class="form-control" id="tipo2" onkeyup="validate()" required="required">
-                                <option value="" selected hidden>Selecione...</option>
-                                <option>2D</option>
-                                <option>3D</option>
-                                <option>4D</option>
-                                <option>IMAX 2D</option>
-                                <option>IMAX 3D</option>
-                                <option>XPLUS 2D</option>
-                                <option>XPLUS 3D</option>
-                                <option>SALA VIP 2D</option>
-                                <option>SALA VIP 3D</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="sala">Sala:</label>
-                            <select name="sala" class="form-control" id="sala" onkeyup="validate()" required="required">
-                                <option value="" selected hidden>Selecione...</option>
-                                <option>Sala 01</option>
-                                <option>Sala 02</option>
-                                <option>Sala 03</option>
-                                <option>Sala 04</option>
-                                <option>Sala 05</option>
-                                <option>Sala 06</option>
-                                <option>Sala 07</option>
-                                <option>Sala 08</option>
-                                <option>Sala 09</option>
-                                <option>Sala 10</option>
-                                <option>Sala 11</option>
-                                <option>Sala 12</option>
-                                <option>Sala 13</option>
-                                <option>Sala 14</option>
-                                <option>Sala 15</option>
-                                <option>Sala IMAX</option>
-                                <option>Sala 4D</option>
-                                <option>Sala VIP</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="dia">Dia:</label>
-                            <select name="dia" class="form-control" id="dia" onkeyup="validate()" required="required">
-                                <option value="" selected hidden>Selecione...</option>
-                                <option>Segunda</option>
-                                <option>Terça</option>
-                                <option>Quarta</option>
-                                <option>Quinta</option>
-                                <option>Sexta</option>
-                                <option>Sabado</option>
-                                <option>Domingo</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="horario">Horario:</label>
-                            <select name="horario" class="form-control" id="horario" onkeyup="validate()" required="required">
-                                <option value="" selected hidden>Selecione...</option>
-                                <option>13:00</option>
-                                <option>13:10</option>
-                                <option>13:30</option>
-                                <option>13:50</option>
-
-                                <option>14:00</option>
-                                <option>14:10</option>
-                                <option>14:30</option>
-                                <option>14:50</option>
-
-                                <option>15:00</option>
-                                <option>15:10</option>
-                                <option>15:30</option>
-                                <option>15:50</option>
-
-                                <option>16:00</option>
-                                <option>16:10</option>
-                                <option>16:30</option>
-                                <option>16:50</option>
-
-                                <option>17:00</option>
-                                <option>17:10</option>
-                                <option>17:30</option>
-                                <option>17:50</option>
-
-                                <option>18:00</option>
-                                <option>18:10</option>
-                                <option>18:30</option>
-                                <option>18:50</option>
-
-                                <option>19:00</option>
-                                <option>19:10</option>
-                                <option>19:30</option>
-                                <option>19:50</option>
-
-                                <option>20:00</option>
-                                <option>20:10</option>
-                                <option>20:30</option>
-                                <option>20:50</option>
-
-                                <option>21:00</option>
-                                <option>21:10</option>
-                                <option>21:30</option>
-                                <option>21:50</option>
-
-                                <option>22:00</option>
-                                <option>22:30</option>
-                                <option>00:00</option>
-                                
+                            <label for="classificacao" >Classificação:</label>
+                            <select name="classificacao" class="form-control" id="classificacao" required="required" >
+                                <option value="0" selected hidden>Selecione...</option>
+                                <option>Livre</option>
+                                <option>10</option>
+                                <option>12</option>
+                                <option>14</option>
+                                <option>16</option>
+                                <option>18</option>
+                                <option>Especialmente recomendado para crianças e adolescentes</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="genero" >Gênero:</label>
-                            <select name="genero" class="form-control" id="genero" onkeyup="validate()" required="required" >
+                            <select name="genero" class="form-control" id="genero" required="required" >
                                 <option value="0" selected hidden>Selecione...</option>
                                 <option>Ação</option>
                                 <option>Animação</option>
@@ -203,8 +112,8 @@
                         </div>
 
                         <div class="text-right">
-                            <a href="#" ><submit class="btn btn-warning" id="submit" value="Acessar"/>Limpar</submit></a>
-                            <a href="#" ><submit class="btn btn-success" id="submit" value="Acessar"/>Cadastrar</submit></a>
+                            <input type='reset' class="btn btn-warning" value="Limpar"/>
+                            <input id="btnCadastrarFilme" type='submit' class="btn btn-success" value='Cadastrar'/>
                         </div>
                     </form>
                 </div>

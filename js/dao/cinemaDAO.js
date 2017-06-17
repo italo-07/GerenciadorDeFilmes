@@ -101,15 +101,3 @@ function iniciarListenersCinemas(){
 		console.log("The read failed: " + errorObject.code);
 	});
 }
-
-
-/*function editarContato(id, nome, telefone, imagem){
-	url.child("Contatos").child(id).update({
-			"nome" : nome,
-			"telefone" : telefone
-		});
-}
-
-/*function removerContato(id){
-	url.child("Contatos").child(id).remove();
-}*/

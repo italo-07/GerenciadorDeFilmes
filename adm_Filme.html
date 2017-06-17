@@ -26,6 +26,9 @@
             <a href="adm_Cinema.html"><i class="fa fa-ticket fa-fw" aria-hidden="true"></i>Cinemas</a>
         </li>
         <li>
+            <a href="adm_Sessao.html"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>Sessões</a>
+        </li>
+        <li>
           <a href="#"><i class="fa fa-user-circle fa-fw" aria-hidden="true"></i>Administrador</a>
         </li>
         <li>
@@ -48,35 +51,16 @@
           <table class="table table-hover table-responsive md-margin-top">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Nome Filme</th>
                 <th>Cinema</th>
-                <th>Tipo</th>
-                <th>Sessão</th>
-                <th>Sala</th>
-                <th>Dia</th>
-                <th>Horario</th>
+                <th>Classificação</th>
                 <th>Gênero</th>
                 <th>Duração</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a class="btn btn-info" href="updateFilme.html">Atualizar</a>
-                    <a class="btn btn-danger" href="#">Excluir</a>
-                </td>
-              </tr>
+            <tbody id="tableFilme">
+              
+
             </tbody>
           </table>
 
@@ -90,10 +74,11 @@
   </div>
 
   <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
   <script src="js/js-check.js"></script>
   <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="js/firebase.js"></script>
-  <script src="js/bancoDeDados.js"></script>
+  <script src="js/dao/filmeDAO.js"></script>
+  <script src="js/scriptGeral.js"></script>
 
 </body>
 

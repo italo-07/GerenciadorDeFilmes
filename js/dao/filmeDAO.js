@@ -3,32 +3,38 @@
 $(document).ready(function(){
 	
 	iniciarSelectCinemas();
+	iniciarListenersFilmes();
 
 
 });
 
-// function cadastrarCinema(nome, endereco, preco){
-// 	firebase
-// 	.database()
-// 	.ref('cinema')
-// 	.push()
-// 	.set({
-// 			"nome" : nome,
-// 			"endereco" : endereco,
-// 			"preco" : preco
-// 		});
+function cadastrarFilme(nomeFilme, nomeOriginal, cartaz, descricao, cinemaFilme, classificacao, genero, duracao){
+	firebase
+	.database()
+	.ref('filme')
+	.push()
+	.set({
+			"nomeFilme" : nomeFilme,
+			"nomeOriginal" : nomeOriginal,
+			"cartaz" : cartaz,
+			"sinopse" : descricao,
+			"cinema" : cinemaFilme,
+			"classificacao" : classificacao,
+			"genero" : genero,
+			"duracao" : duracao
+		});
 	
-// 	console.log('cadastrado com sucesso!');
-// }
+	console.log('FILME - cadastrado com sucesso!');
+}
 
-// function excluirCinema(key){
-// 	firebase
-// 	.database()
-// 	.ref('cinema/' + key)
-// 	.remove();
+function excluirFilme(key){
+	firebase
+	.database()
+	.ref('filme/' + key)
+	.remove();
 	
-// 	console.log('excluido com sucesso!');
-// }
+	console.log('FILME - excluido com sucesso!');
+}
 
 // function atualizarCinema(nome, endereco, preco){
 // 	firebase
@@ -77,6 +83,60 @@ function iniciarSelectCinemas(){
 	.on("child_removed", function(cinema) {
 		
 		$(`option[value='${cinema.key}']`).remove();
+
+	}, function (errorObject){
+		console.log("The read failed: " + errorObject.code);
+	});
+
+}
+
+function iniciarListenersFilmes(){
+	//Lista Filmes
+
+	 // * Query principal que retorna os cinemas ordenados pelo nome
+	 // *
+	firebase
+	.database()
+	.ref('filme')
+	.orderByChild("nomeFilme")
+	.on("child_added", function(filme) {
+		console.log("Aqui");
+
+		var filmeObj = filme.val();
+		filmeObj.id = filme.key;
+
+		var component =
+                `<tr id='${filmeObj.id}'>`+
+                  "<td>" + filmeObj.nomeFilme + "</td>"  +
+                  "<td>" + filmeObj.cinemaFilme + "</td>"  +
+                  "<td>" + filmeObj.classificacao + "</td>"+
+                  "<td>" + filmeObj.genero + "</td>"  +
+                  "<td>" + filmeObj.duracao + "</td>"  +
+                  "<td>"+
+                      "<a class='btn btn-info' href='#''>Editar</a>"+
+                      "<a class='btn btn-danger' href='#'"+
+                      		`onclick="excluirFilme('${filmeObj.id}')">Excluir</a>`+
+                  "</td>"+
+                "</tr>";
+
+		$("#tableFilme").append(component);
+
+	}, function (errorObject){
+		console.log("The read failed: " + errorObject.code);
+	});
+	
+	 // * Query principal que retorna os cinemas exluidos ordenados pelo nome
+	 // *
+	firebase
+	.database()
+	.ref('filme')
+	.orderByChild("nome")
+	.on("child_removed", function(filme) {
+
+		var keyFilme = filme.key;
+		var dom = "#" + keyFilme;
+
+		$(dom).remove();
 
 	}, function (errorObject){
 		console.log("The read failed: " + errorObject.code);

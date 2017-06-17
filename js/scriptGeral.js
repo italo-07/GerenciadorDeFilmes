@@ -34,5 +34,90 @@ $(document).ready(function(){
 		});
 
 		cadastrarCinema(cinemaNome, cinemaEndereco, cinemaPreco);
+
+		alert("Cadastrado com Sucesso");
+	});
+
+	/*
+	 * Cadastrar Filme
+	 */
+	$('#btnCadastrarFilme').click(function(event){
+		event.preventDefault();
+		/*
+		 * Variaveis
+		 */
+		var filmeNome;
+		var filmeNomeOriginal;
+		var filmeImagemCartaz;
+		var filmeSinopse;
+		var filmeCinemaNome;
+		var filmeClassificacao;
+		var filmeGenero;
+		var filmeDuracao;
+		
+		var inputs = $('#formFilme').serializeArray();
+		inputs.forEach(function(obj){
+
+			if(obj.name === 'nomeFilme')
+				filmeNome = obj.value;
+			else if(obj.name === 'nomeOriginal')
+				filmeNomeOriginal = obj.value;
+			else if(obj.name === 'cartaz')
+				filmeImagemCartaz = obj.value;
+			else if(obj.name === 'descricao')
+				filmeSinopse = obj.value;
+			else if(obj.name === 'cinemaFilme')
+				filmeCinemaNome = obj.value;
+			else if(obj.name === 'classificacao')
+				filmeClassificacao = obj.value;
+			else if(obj.name === 'genero')
+				filmeGenero = obj.value;
+			else if(obj.name === 'duracao')
+				filmeDuracao = obj.value;
+
+		});
+
+		cadastrarFilme(filmeNome, filmeNomeOriginal, filmeImagemCartaz, filmeSinopse, filmeCinemaNome, filmeClassificacao, filmeGenero, filmeDuracao);
+
+		alert("FILME - Cadastrado com Sucesso");
+	});
+
+	
+	/*
+	 * Cadastrar Sessão
+	 */
+	$('#btnCadastrarSessao').click(function(event){
+		event.preventDefault();
+		/*
+		 * Variaveis
+		 */
+		var sessaoFilme;
+		var sessaoCinema;
+		var sessaoTipo;
+		var sessaoModo;
+		var sessaoSala;
+		var sessaoHorario;
+		
+		var inputs = $('#formSessao').serializeArray();
+		inputs.forEach(function(obj){
+
+			if(obj.name === 'nomeFilme')
+				sessaoFilme = obj.value;
+			else if(obj.name === 'cinemaFilme')
+				sessaoCinema = obj.value;
+			else if(obj.name === 'tipo')
+				sessaoTipo = obj.value;
+			else if(obj.name === 'modo')
+				sessaoModo = obj.value;
+			else if(obj.name === 'sala')
+				sessaoSala = obj.value;
+			else if(obj.name === 'horario')
+				sessaoHorario = obj.value;
+
+		});
+
+		cadastrarSessao(sessaoFilme, sessaoCinema, sessaoTipo, sessaoModo, sessaoSala, sessaoHorario);
+
+		alert("SESSAO - Cadastrado com Sucesso");
 	});
 });

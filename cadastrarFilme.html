@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Pyxis</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="painel_Adm.html"><i class="fa fa-film" aria-hidden="true"></i></i> Sistema de Filmes</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="painel_Adm.html"><i class="fa fa-arrow-circle-o-left fa-fw" aria-hidden="true"></i>Voltar</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 id="title" class="text-center">Cadastro de Filmes</h2>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12 md-margin ">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="nomeFilme">Nome do Filme:</label>
+                            <input type="text" name="nomeFilme" id="nomeFilme" class="form-control" placeholder="Nome do Filme" onkeyup="validate()" required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cine">Cinema:</label>
+                            <select name="cine" class="form-control" id="cine" onkeyup="validate()" required="required">
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>Benfica</option>
+                                <option>Caucaia</option>
+                                <option>Del Paseo</option>
+                                <option>Dragão do Mar</option>
+                                <option>North Shopping Bezerra</option>
+                                <option>North Shopping Joquei</option>
+                                <option>North Shopping Maracanau</option>
+                                <option>Parangaba</option>
+                                <option>Rio Mar Kennedy</option>
+                                <option>Rio Mar Papicu</option>
+                                <option>Via sul</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipo">Selecione o Tipo:</label>
+                            <select name="tipo" class="form-control" id="tipo" onkeyup="validate()" required="required">
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>Dublado</option>
+                                <option>Legendado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tipo2">Tipo da Sessão:</label>
+                            <select name="tipo2" class="form-control" id="tipo2" onkeyup="validate()" required="required">
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>2D</option>
+                                <option>3D</option>
+                                <option>4D</option>
+                                <option>IMAX 2D</option>
+                                <option>IMAX 3D</option>
+                                <option>XPLUS 2D</option>
+                                <option>XPLUS 3D</option>
+                                <option>SALA VIP 2D</option>
+                                <option>SALA VIP 3D</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sala">Sala:</label>
+                            <select name="sala" class="form-control" id="sala" onkeyup="validate()" required="required">
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>Sala 01</option>
+                                <option>Sala 02</option>
+                                <option>Sala 03</option>
+                                <option>Sala 04</option>
+                                <option>Sala 05</option>
+                                <option>Sala 06</option>
+                                <option>Sala 07</option>
+                                <option>Sala 08</option>
+                                <option>Sala 09</option>
+                                <option>Sala 10</option>
+                                <option>Sala 11</option>
+                                <option>Sala 12</option>
+                                <option>Sala 13</option>
+                                <option>Sala 14</option>
+                                <option>Sala 15</option>
+                                <option>Sala IMAX</option>
+                                <option>Sala 4D</option>
+                                <option>Sala VIP</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dia">Dia:</label>
+                            <select name="dia" class="form-control" id="dia" onkeyup="validate()" required="required">
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>Segunda</option>
+                                <option>Terça</option>
+                                <option>Quarta</option>
+                                <option>Quinta</option>
+                                <option>Sexta</option>
+                                <option>Sabado</option>
+                                <option>Domingo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="horario">Horario:</label>
+                            <select name="horario" class="form-control" id="horario" onkeyup="validate()" required="required">
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>13:00</option>
+                                <option>13:10</option>
+                                <option>13:30</option>
+                                <option>13:50</option>
+
+                                <option>14:00</option>
+                                <option>14:10</option>
+                                <option>14:30</option>
+                                <option>14:50</option>
+
+                                <option>15:00</option>
+                                <option>15:10</option>
+                                <option>15:30</option>
+                                <option>15:50</option>
+
+                                <option>16:00</option>
+                                <option>16:10</option>
+                                <option>16:30</option>
+                                <option>16:50</option>
+
+                                <option>17:00</option>
+                                <option>17:10</option>
+                                <option>17:30</option>
+                                <option>17:50</option>
+
+                                <option>18:00</option>
+                                <option>18:10</option>
+                                <option>18:30</option>
+                                <option>18:50</option>
+
+                                <option>19:00</option>
+                                <option>19:10</option>
+                                <option>19:30</option>
+                                <option>19:50</option>
+
+                                <option>20:00</option>
+                                <option>20:10</option>
+                                <option>20:30</option>
+                                <option>20:50</option>
+
+                                <option>21:00</option>
+                                <option>21:10</option>
+                                <option>21:30</option>
+                                <option>21:50</option>
+
+                                <option>22:00</option>
+                                <option>22:30</option>
+                                <option>00:00</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genero" >Gênero:</label>
+                            <select name="genero" class="form-control" id="genero" onkeyup="validate()" required="required" >
+                                <option value="" selected hidden>Selecione...</option>
+                                <option>Ação</option>
+                                <option>Animação</option>
+                                <option>Anime</option>
+                                <option>Aventura</option>
+                                <option>Biografia</option>
+                                <option>Comédia</option>
+                                <option>Documentário</option>
+                                <option>Drama</option>
+                                <option>Esporte</option>
+                                <option>Família</option>
+                                <option>Fantasia</option>
+                                <option>Faroeste</option>
+                                <option>Ficção</option>
+                                <option>Ficção Científica</option>
+                                <option>Film-Noir</option>
+                                <option>Guerra</option>
+                                <option>História</option>
+                                <option>Infantil</option>
+                                <option>Mistério</option>
+                                <option>Música</option>
+                                <option>Musical</option>
+                                <option>Nacional</option>
+                                <option>Policial</option>
+                                <option>Romance</option>
+                                <option>Show</option>
+                                <option>Suspense</option>
+                                <option>Terror</option>
+                                <option>Thriller</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duracao">Duração do Filme:</label>
+                            <input type="text" name="duracao" id="duracao" class="form-control" placeholder="Duração do Filme" onkeyup="validate()" required="required">
+                        </div>
+
+                        <div class="text-right">
+                            <a href="#" ><submit class="btn btn-warning" id="submit" value="Acessar"/>Limpar</submit></a>
+                            <a href="#" ><submit class="btn btn-success" id="submit" value="Acessar"/>Cadastrar</submit></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/validation.js"></script>
+        
+    <div id="rodape">
+      <span>© 2017 Todos os Direitos Reservados. Pyxis - SMD UFC</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/js-check.js"></script>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/bancoDeDados.js"></script>
+
+</body>
+
+</html>

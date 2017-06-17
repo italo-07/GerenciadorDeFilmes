@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Pyxis</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="painel_Adm.html"><i class="fa fa-film" aria-hidden="true"></i></i> Sistema de Filmes</a>
+      </div>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="adm_Filme.html"><i class="fa fa-film fa-fw" aria-hidden="true"></i>Filmes</a>
+        </li>
+        <li>
+            <a href="adm_Cinema.html"><i class="fa fa-ticket fa-fw" aria-hidden="true"></i>Cinemas</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-user-circle fa-fw" aria-hidden="true"></i>Administrador</a>
+        </li>
+        <li>
+          <a href="login_adm.html" ><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="lg-margin-top">
+          <h2 class="text-center lg-margin">Modo Administrador - Tela de Consulta de Filmes</h2>
+
+          <a href="cadastrarFilme.html"><button type="submit" class="btn btn-default md-margin">Incluir Filme</button></a>
+
+          <h3 class="text-left md-margin">Listagem de filmes cadastrados</h3>
+          
+          <table class="table table-hover table-responsive md-margin-top">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome Filme</th>
+                <th>Cinema</th>
+                <th>Tipo</th>
+                <th>Sessão</th>
+                <th>Sala</th>
+                <th>Dia</th>
+                <th>Horario</th>
+                <th>Gênero</th>
+                <th>Duração</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a class="btn btn-info" href="updateFilme.html">Atualizar</a>
+                    <a class="btn btn-danger" href="#">Excluir</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div id="rodape">
+      <span>© 2017 Todos os Direitos Reservados. Pyxis - SMD UFC</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/js-check.js"></script>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/bancoDeDados.js"></script>
+
+</body>
+
+</html>

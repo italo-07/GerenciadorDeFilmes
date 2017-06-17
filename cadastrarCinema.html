@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Pyxis</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="painel_Adm.html"><i class="fa fa-film" aria-hidden="true"></i></i> Sistema de Filmes</a>
+      </div>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="adm_Filme.html"><i class="fa fa-film fa-fw" aria-hidden="true"></i>Filmes</a>
+        </li>
+        <li>
+            <a href="adm_Cinema.html"><i class="fa fa-ticket fa-fw" aria-hidden="true"></i>Cinemas</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-user-circle fa-fw" aria-hidden="true"></i>Administrador</a>
+        </li>
+        <li>
+          <a href="login_adm.html" ><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="lg-margin-top">
+          <h2 class="text-center">Cadastro de Cinemas Clientes</h2>
+          <div class="col-lg-6 col-lg-offset-3 col-md-6 col-sm-12 col-xs-12 lg-margin-top">
+            <form method="post">
+              <div class="form-group">
+                <label for="nome">Cinema:</label>
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome do Cinema" onkeyup="validate()" required="required">
+              </div>
+
+              <div class="form-group">
+                <label for="quantidade">Quantidade de Salas:</label>
+                <input type="text" name="quantidade" id="quantidade" class="form-control" placeholder="Digite a quantidade de salas" onkeyup="validate()" required="required">
+              </div>
+
+              <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Digite o endereço" onkeyup="validate()" required="required">
+              </div>
+
+              <div class="form-group">
+                <label for="preco">Preço:</label>
+                <input type="text" name="preco" id="preco" class="form-control" placeholder="Digite o preço" onkeyup="validate()" required="required">
+              </div>
+
+              <div class="text-right">
+                  <a href="#" ><submit class="btn btn-warning" id="submit" value="Acessar"/>Limpar</submit></a>
+                  <a href="#" ><submit class="btn btn-success" id="submit" value="Acessar"/>Cadastrar</submit></a>
+                  <inputtype='button' value='Enviar' onclick="enviarDados()"/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rodape">
+    <span>© 2017 Todos os Direitos Reservados. Pyxis - SMD UFC</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/js-check.js"></script>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/bancoDeDados.js"></script>
+
+</body>
+
+</html>

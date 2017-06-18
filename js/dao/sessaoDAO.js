@@ -64,7 +64,7 @@ function iniciarSelectFilmes(){
 		console.log("iniciou sessao")
 
 		var component = `<option value="${filmeObj.id}">
-								${filmeObj.nome}
+								${filmeObj.nomeFilme}
 						 </option>`;
 
 		$("#nomeFilme").append(component);

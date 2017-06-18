@@ -108,7 +108,7 @@ function iniciarListenersFilmes(){
 		var component =
                 `<tr id='${filmeObj.id}'>`+
                   "<td>" + filmeObj.nomeFilme + "</td>"  +
-                  "<td>" + filmeObj.cinemaFilme + "</td>"  +
+                  "<td>" + filmeObj.cinema + "</td>"  +
                   "<td>" + filmeObj.classificacao + "</td>"+
                   "<td>" + filmeObj.genero + "</td>"  +
                   "<td>" + filmeObj.duracao + "</td>"  +

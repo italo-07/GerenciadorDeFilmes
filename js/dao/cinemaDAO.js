@@ -1,14 +1,3 @@
-// Initialize Firebase
-var config = {
-	apiKey: "AIzaSyAJZdcQnRB6V7FLRAg7Z48vb_T60k9sdYQ",
-	authDomain: "gerenciadordefilmes.firebaseapp.com",
-	databaseURL: "https://gerenciadordefilmes.firebaseio.com",
-	projectId: "gerenciadordefilmes",
-	storageBucket: "gerenciadordefilmes.appspot.com",
-	messagingSenderId: "871382889008"
-};
-firebase.initializeApp(config);
-
 $(document).ready(function(){
 	
 	iniciarListenersCinemas();

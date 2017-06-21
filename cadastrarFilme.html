@@ -52,10 +52,14 @@
 
                         <div class="form-group">
                             <label for="cine">Cinema:</label>
-                            <select id="cinemaFilme" name="cinemaFilme" multiple="" class="ui fluid dropdown form-control" required="required">
-                                <option value="" selected hidden>Selecione...</option>
-
-                            </select>
+                            <div class="ui fluid multiple selection dropdown">
+                                <input name="cinemaFilme" type="hidden">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Selecione...</div>
+                                <div id="cinemaFilme"  class="menu">
+    
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

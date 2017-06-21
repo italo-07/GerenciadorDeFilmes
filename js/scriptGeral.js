@@ -50,7 +50,7 @@ $(document).ready(function(){
 		var filmeNomeOriginal;
 		var filmeImagemCartaz;
 		var filmeSinopse;
-		var filmeCinemaNome;
+		var filmeCinemaNome = [];
 		var filmeClassificacao;
 		var filmeGenero;
 		var filmeDuracao;
@@ -77,7 +77,17 @@ $(document).ready(function(){
 
 		});
 
-		cadastrarFilme(filmeNome, filmeNomeOriginal, filmeImagemCartaz, filmeSinopse, filmeCinemaNome, filmeClassificacao, filmeGenero, filmeDuracao);
+		var arrayfilmeCinemaNome = filmeCinemaNome.split(',');
+		console.log(arrayfilmeCinemaNome);
+		var cinemas = {};
+
+		arrayfilmeCinemaNome.forEach(function(obj){
+			cinemas[obj] = true
+		});
+
+		console.log(cinemas)
+
+		cadastrarFilme(filmeNome, filmeNomeOriginal, filmeImagemCartaz, filmeSinopse, cinemas, filmeClassificacao, filmeGenero, filmeDuracao);
 
 		alert("FILME - Cadastrado com Sucesso");
 	});

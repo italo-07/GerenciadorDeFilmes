@@ -64,9 +64,9 @@ function iniciarSelectCinemas(){
 
 		console.log("iniciou")
 
-		var component = `<option value="${cinemaObj.id}">
-								${cinemaObj.nome}
-						 </option>`;
+		var component = `<div class="item" data-value="${cinemaObj.id}">
+						 	${cinemaObj.nome}
+						 </div>`
 
 		$("#cinemaFilme").append(component);
 

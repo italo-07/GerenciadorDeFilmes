@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" />
 </head>
 
 <body>
@@ -44,7 +45,156 @@
         <div class="lg-margin-top">
           <h2 class="text-center lg-margin">Modo Administrador - Tela de Consulta de Filmes</h2>
 
-          <a href="cadastrarSessao.html"><button type="submit" class="btn btn-default md-margin">Incluir Sessão</button></a>
+          <button class="ui inverted blue button showModal md-margin">Incluir Sessão</button>
+
+
+          <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Cadastrar Filmes</div>
+            <div class="description">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12 md-margin ">
+                            <form id="formSessao" method="post">
+                                <div class="form-group">
+                                    <label for="nomeFilme">Filme:</label>
+                                    <select id="nomeFilme" name="nomeFilme" multiple="" class="ui fluid dropdown form-control" required="required">
+                                        <option value="" selected hidden>Selecione...</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cine">Cinema:</label>
+                                    <select id="cinemaFilme" name="cinemaFilme" multiple="" class="ui fluid dropdown form-control" required="required">
+                                        <option value="" selected hidden>Selecione...</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tipo">Selecione o Tipo:</label>
+                                    <select name="tipo" class="form-control" id="tipo" required="required">
+                                        <option value="" selected hidden>Selecione...</option>
+                                        <option>Dublado</option>
+                                        <option>Legendado</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="modo">Tipo da Sessão:</label>
+                                    <select name="modo" class="form-control" id="modo" required="required">
+                                        <option value="" selected hidden>Selecione...</option>
+                                        <option>2D</option>
+                                        <option>3D</option>
+                                        <option>4D</option>
+                                        <option>IMAX 2D</option>
+                                        <option>IMAX 3D</option>
+                                        <option>XPLUS 2D</option>
+                                        <option>XPLUS 3D</option>
+                                        <option>SALA VIP 2D</option>
+                                        <option>SALA VIP 3D</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sala">Sala:</label>
+                                    <select name="sala" multiple="" class="ui fluid dropdown form-control" id="sala" required="required">
+                                        <option value="" selected hidden>Selecione...</option>
+                                        <option>Sala 01</option>
+                                        <option>Sala 02</option>
+                                        <option>Sala 03</option>
+                                        <option>Sala 04</option>
+                                        <option>Sala 05</option>
+                                        <option>Sala 06</option>
+                                        <option>Sala 07</option>
+                                        <option>Sala 08</option>
+                                        <option>Sala 09</option>
+                                        <option>Sala 10</option>
+                                        <option>Sala 11</option>
+                                        <option>Sala 12</option>
+                                        <option>Sala 13</option>
+                                        <option>Sala 14</option>
+                                        <option>Sala 15</option>
+                                        <option>Sala IMAX</option>
+                                        <option>Sala 4D</option>
+                                        <option>Sala VIP</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="horario">Horario:</label>
+                                    <select name="horario" multiple="" class="ui fluid dropdown form-control" id="horario" required="required">
+                                        <option value="" selected hidden>Selecione...</option>
+                                        <option>13:00</option>
+                                        <option>13:10</option>
+                                        <option>13:30</option>
+                                        <option>13:50</option>
+
+                                        <option>14:00</option>
+                                        <option>14:10</option>
+                                        <option>14:30</option>
+                                        <option>14:50</option>
+
+                                        <option>15:00</option>
+                                        <option>15:10</option>
+                                        <option>15:30</option>
+                                        <option>15:50</option>
+
+                                        <option>16:00</option>
+                                        <option>16:10</option>
+                                        <option>16:30</option>
+                                        <option>16:50</option>
+
+                                        <option>17:00</option>
+                                        <option>17:10</option>
+                                        <option>17:30</option>
+                                        <option>17:50</option>
+
+                                        <option>18:00</option>
+                                        <option>18:10</option>
+                                        <option>18:30</option>
+                                        <option>18:50</option>
+
+                                        <option>19:00</option>
+                                        <option>19:10</option>
+                                        <option>19:30</option>
+                                        <option>19:50</option>
+
+                                        <option>20:00</option>
+                                        <option>20:10</option>
+                                        <option>20:30</option>
+                                        <option>20:50</option>
+
+                                        <option>21:00</option>
+                                        <option>21:10</option>
+                                        <option>21:30</option>
+                                        <option>21:50</option>
+
+                                        <option>22:00</option>
+                                        <option>22:30</option>
+                                        <option>00:00</option>
+                                        
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+              <div class="ui black deny button">Voltar</div>
+              <div class="ui positive right labeled icon button" id="btnCadastrarSessao">
+                Cadastrar
+                <i class="checkmark icon"></i>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
 
           <h3 class="text-left md-margin">Listagem de filmes cadastrados</h3>
           
@@ -79,6 +229,16 @@
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/dao/sessaoDAO.js"></script>
   <script src="js/scriptGeral.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+
+  <script>
+    $(document).on("click", ".showModal", function () {
+      $('.ui.modal').modal('show');
+    });
+    
+    $('.ui.dropdown').dropdown();
+    
+  </script>
 
 </body>
 

@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" />
 </head>
 
 <body>
@@ -44,7 +45,116 @@
         <div class="lg-margin-top">
           <h2 class="text-center lg-margin">Modo Administrador - Tela de Consulta de Filmes</h2>
 
-          <a href="cadastrarFilme.html"><button type="submit" class="btn btn-default md-margin">Incluir Filme</button></a>
+          <!-- <a href="cadastrarFilme.html"><button type="submit" class="btn btn-default md-margin">Incluir Filme</button></a> -->
+          <button class="ui inverted blue button showModal md-margin">Incluir Filme</button>
+
+
+          <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Cadastrar Filmes</div>
+            <div class="description">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12 md-margin ">
+                            <form id="formFilme" method="post">
+                                <div class="form-group">
+                                    <label for="nomeFilme">Nome do Filme:</label>
+                                    <input type="text" name="nomeFilme" id="nomeFilme" class="form-control" placeholder="Nome do Filme" required="required">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nomeOriginal">Nome Original do Filme:</label>
+                                    <input type="text" name="nomeOriginal" id="nomeOriginal" class="form-control" placeholder="Nome Original do Filme" required="required">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cartaz">Imagem em Cartaz:</label>
+                                    <input type="text" name="cartaz" id="cartaz" class="form-control" placeholder="Link da Imagem" required="required">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descricao">Sinopse do Filme:</label>
+                                    <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição do Filme" required="required">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cine">Cinema:</label>
+                                    <div class="ui fluid multiple selection dropdown">
+                                        <input name="cinemaFilme" type="hidden">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Selecione...</div>
+                                        <div id="cinemaFilme"  class="menu">
+                
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="classificacao" >Classificação:</label>
+                                    <select name="classificacao" class="form-control" id="classificacao" required="required" >
+                                        <option value="0" selected hidden>Selecione...</option>
+                                        <option>Livre</option>
+                                        <option>10</option>
+                                        <option>12</option>
+                                        <option>14</option>
+                                        <option>16</option>
+                                        <option>18</option>
+                                        <option>Especialmente recomendado para crianças e adolescentes</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="genero" >Gênero:</label>
+                                    <select name="genero" multiple="" class="ui fluid dropdown form-control" id="genero" required="required" >
+                                        <option value="" selected hidden>Selecione...</option>
+                                        <option>Ação</option>
+                                        <option>Animação</option>
+                                        <option>Anime</option>
+                                        <option>Aventura</option>
+                                        <option>Biografia</option>
+                                        <option>Comédia</option>
+                                        <option>Documentário</option>
+                                        <option>Drama</option>
+                                        <option>Esporte</option>
+                                        <option>Família</option>
+                                        <option>Fantasia</option>
+                                        <option>Faroeste</option>
+                                        <option>Ficção</option>
+                                        <option>Ficção Científica</option>
+                                        <option>Film-Noir</option>
+                                        <option>Guerra</option>
+                                        <option>História</option>
+                                        <option>Infantil</option>
+                                        <option>Mistério</option>
+                                        <option>Música</option>
+                                        <option>Musical</option>
+                                        <option>Nacional</option>
+                                        <option>Policial</option>
+                                        <option>Romance</option>
+                                        <option>Show</option>
+                                        <option>Suspense</option>
+                                        <option>Terror</option>
+                                        <option>Thriller</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="duracao">Duração do Filme:</label>
+                                    <input type="text" name="duracao" id="duracao" class="form-control" placeholder="Duração do Filme" required="required">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+              <div class="ui black deny button">Voltar</div>
+              <div class="ui positive right labeled icon button" id="btnCadastrarFilme" >
+                Cadastrar
+                <i class="checkmark icon"></i>
+              </div>
+            </div>
+          </div>
 
           <h3 class="text-left md-margin">Listagem de filmes cadastrados</h3>
           
@@ -78,6 +188,17 @@
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/dao/filmeDAO.js"></script>
   <script src="js/scriptGeral.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+
+
+  <script>
+    $(document).on("click", ".showModal", function () {
+      $('.ui.modal').modal('show');
+    });
+    
+    $('.ui.dropdown').dropdown();
+    
+  </script>
 
 </body>
 

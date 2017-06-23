@@ -1,11 +1,12 @@
 $(document).ready(function(){
 	
 	iniciarListenersCinemas();
+	iniciarSelectFilmes();
 
 
 });
 
-function cadastrarCinema(nome, endereco, preco){
+function cadastrarCinema(nome, endereco, filmes){
 	firebase
 	.database()
 	.ref('cinema')
@@ -13,7 +14,7 @@ function cadastrarCinema(nome, endereco, preco){
 	.set({
 			"nome" : nome,
 			"endereco" : endereco,
-			"preco" : preco
+			"filmes" : filmes
 		});
 	
 	console.log('cadastrado com sucesso!');
@@ -28,7 +29,7 @@ function excluirCinema(key){
 	console.log('excluido com sucesso!');
 }
 
-function atualizarCinema(nome, endereco, preco){
+function atualizarCinema(nome, endereco, filmes){
 	firebase
 	.database()
 	.ref('cinema')
@@ -36,11 +37,62 @@ function atualizarCinema(nome, endereco, preco){
 	.update({
 			"nome" : nome,
 			"endereco" : endereco,
-			"preco" : preco
+			"filmes" : filmes
 		});
 	
 	console.log('atualizar com sucesso!');
 }
+
+
+function iniciarSelectFilmes(){
+	 // * Query principal que retorna os cinemas ordenados pelo nome
+	 // *
+	firebase
+	.database()
+	.ref('filme')
+	.orderByChild("nomeFilme")
+	.on("child_added", function(filme) {
+
+		var filmeObj = filme.val();
+		filmeObj.id = filme.key;
+
+		console.log("iniciou")
+
+		var component = `<div class="item" data-value="${filmeObj.id}">
+						 	${filmeObj.nomeFilme}
+						 </div>`
+
+		$("#nomeFilme").append(component);
+
+	}, function (errorObject){
+		console.log("The read failed: " + errorObject.code);
+	});
+	
+	 // * Query principal que retorna os cinemas exluidos ordenados pelo nome
+	 // *
+	firebase
+	.database()
+	.ref('filme')
+	.orderByChild("nomeFilme")
+	.on("child_removed", function(filme) {
+		
+		$(`option[value='${filme.key}']`).remove();
+
+	}, function (errorObject){
+		console.log("The read failed: " + errorObject.code);
+	});
+
+}
+
+
+
+
+
+
+
+
+
+
 
 function iniciarListenersCinemas(){
 	
@@ -59,7 +111,7 @@ function iniciarListenersCinemas(){
                 `<tr id='${cinemaObj.id}'>`+
                   "<td>" + cinemaObj.nome + "</td>"  +
                   "<td>" + cinemaObj.endereco + "</td>"  +
-                  "<td>" + cinemaObj.preco + "</td>"+
+                  "<td>" + cinemaObj.filmes + "</td>"+
                   "<td>"+
                       "<a class='btn btn-info' href='#''>Editar</a>"+
                       "<a class='btn btn-danger' href='#'"+

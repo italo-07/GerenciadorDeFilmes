@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" />
 </head>
 
 <body>
@@ -44,14 +45,60 @@
         <div class="lg-margin-top">
           <h2 class="text-center lg-margin">Modo Administrador - Tela de Consulta de Cinemas Parceiros</h2>
 
-          <h3 class="text-left md-margin">Cinemas Cadastrados</h3>
+          <button class="ui inverted blue button showModal md-margin">Incluir Cinema</button>
+
+
+
+          <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Cadastrar Filmes</div>
+            <div class="description">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12 md-margin ">
+                            <form id="formCinema" method="post">
+                              <div class="form-group">
+                                <label for="nome">Cinema:</label>
+                                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome do Cinema" required="required">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="endereco">Endereço:</label>
+                                <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Digite o endereço" required="required">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="filme">Filme:</label>
+                                  <div class="ui fluid multiple selection dropdown">
+                                      <input name="nomeFilme" type="hidden">
+                                      <i class="dropdown icon"></i>
+                                      <div class="default text">Selecione...</div>
+                                      <div id="nomeFilme"  class="menu">
+                                  
+                                      </div>
+                                  </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+              <div class="ui black deny button">Voltar</div>
+              <div class="ui positive right labeled icon button" id="btnCadastrarCinema" >
+                Cadastrar
+                <i class="checkmark icon"></i>
+              </div>
+            </div>
+          </div>
 
           <table class="table table-hover table-responsive md-margin-top">
             <thead>
               <tr>
                 <th>Nome</th>
                 <th>Endereço</th>
-                <th>Preços</th>
+                <th>Cinemas</th>
               </tr>
             </thead>
             <tbody id="tableCinema">
@@ -75,6 +122,16 @@
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/dao/cinemaDAO.js"></script>
   <script src="js/scriptGeral.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+
+  <script>
+    $(document).on("click", ".showModal", function () {
+      $('.ui.modal').modal('show');
+    });
+    
+    $('.ui.dropdown').dropdown();
+    
+  </script>
 
 </body>
 

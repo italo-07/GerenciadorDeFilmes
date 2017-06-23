@@ -19,7 +19,7 @@ $(document).ready(function(){
 		 */
 		var cinemaNome;
 		var cinemaEndereco;
-		var cinemaPreco;
+		var cinemaNomeFilme = [];
 		
 		var inputs = $('#formCinema').serializeArray();
 		inputs.forEach(function(obj){
@@ -28,12 +28,20 @@ $(document).ready(function(){
 				cinemaNome = obj.value;
 			else if(obj.name === 'endereco')
 				cinemaEndereco = obj.value;
-			else if(obj.name === 'preco')
-				cinemaPreco = obj.value;
+			else if(obj.name === 'nomeFilme')
+				cinemaNomeFilme = obj.value;
 
 		});
 
-		cadastrarCinema(cinemaNome, cinemaEndereco, cinemaPreco);
+		var arraycinemafilmeNome = cinemaNomeFilme.split(',');
+		console.log(arraycinemafilmeNome);
+		var filmes = {};
+
+		arraycinemafilmeNome.forEach(function(obj){
+			filmes[obj] = true
+		});
+
+		cadastrarCinema(cinemaNome, cinemaEndereco, filmes);
 
 		alert("Cadastrado com Sucesso");
 	});
@@ -78,7 +86,7 @@ $(document).ready(function(){
 		});
 
 		var arrayfilmeCinemaNome = filmeCinemaNome.split(',');
-		console.log(arrayfilmeCinemaNome);
+		
 		var cinemas = {};
 
 		arrayfilmeCinemaNome.forEach(function(obj){

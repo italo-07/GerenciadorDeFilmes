@@ -6,14 +6,14 @@ $(document).ready(function(){
 
 });
 
-function cadastrarCinema(nome, endereco, filmes){
+function cadastrarCinema(nome, bairro, filmes){
 	firebase
 	.database()
 	.ref('cinema')
 	.push()
 	.set({
 			"nome" : nome,
-			"endereco" : endereco,
+			"bairro" : bairro,
 			"filmes" : filmes
 		});
 	
@@ -29,14 +29,14 @@ function excluirCinema(key){
 	console.log('excluido com sucesso!');
 }
 
-function atualizarCinema(nome, endereco, filmes){
+function atualizarCinema(nome, bairro, filmes){
 	firebase
 	.database()
 	.ref('cinema')
 	.push()
 	.update({
 			"nome" : nome,
-			"endereco" : endereco,
+			"bairro" : bairro,
 			"filmes" : filmes
 		});
 	
@@ -85,15 +85,6 @@ function iniciarSelectFilmes(){
 }
 
 
-
-
-
-
-
-
-
-
-
 function iniciarListenersCinemas(){
 	
 	 // * Query principal que retorna os cinemas ordenados pelo nome
@@ -110,7 +101,7 @@ function iniciarListenersCinemas(){
 		var component =
                 `<tr id='${cinemaObj.id}'>`+
                   "<td>" + cinemaObj.nome + "</td>"  +
-                  "<td>" + cinemaObj.endereco + "</td>"  +
+                  "<td>" + cinemaObj.bairro + "</td>"  +
                   "<td>" + cinemaObj.filmes + "</td>"+
                   "<td>"+
                       "<a class='btn btn-info' href='#''>Editar</a>"+

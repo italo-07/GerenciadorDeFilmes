@@ -18,7 +18,7 @@ $(document).ready(function(){
 		 * Variaveis
 		 */
 		var cinemaNome;
-		var cinemaEndereco;
+		var cinemaBairro;
 		var cinemaNomeFilme = [];
 		
 		var inputs = $('#formCinema').serializeArray();
@@ -26,8 +26,8 @@ $(document).ready(function(){
 
 			if(obj.name === 'nome')
 				cinemaNome = obj.value;
-			else if(obj.name === 'endereco')
-				cinemaEndereco = obj.value;
+			else if(obj.name === 'bairro')
+				cinemaBairro = obj.value;
 			else if(obj.name === 'nomeFilme')
 				cinemaNomeFilme = obj.value;
 
@@ -41,7 +41,7 @@ $(document).ready(function(){
 			filmes[obj] = true
 		});
 
-		cadastrarCinema(cinemaNome, cinemaEndereco, filmes);
+		cadastrarCinema(cinemaNome, cinemaBairro, filmes);
 
 		alert("Cadastrado com Sucesso");
 	});
@@ -66,21 +66,21 @@ $(document).ready(function(){
 		var inputs = $('#formFilme').serializeArray();
 		inputs.forEach(function(obj){
 
-			if(obj.name === 'nomeFilme')
+			if(obj.name === 'nome')
 				filmeNome = obj.value;
-			else if(obj.name === 'nomeOriginal')
+			else if(obj.name === 'nome-original')
 				filmeNomeOriginal = obj.value;
-			else if(obj.name === 'cartaz')
+			else if(obj.name === 'imagem')
 				filmeImagemCartaz = obj.value;
 			else if(obj.name === 'descricao')
 				filmeSinopse = obj.value;
 			else if(obj.name === 'cinemaFilme')
 				filmeCinemaNome = obj.value;
-			else if(obj.name === 'classificacao')
+			else if(obj.name === 'idade')
 				filmeClassificacao = obj.value;
 			else if(obj.name === 'genero')
 				filmeGenero = obj.value;
-			else if(obj.name === 'duracao')
+			else if(obj.name === 'tempo')
 				filmeDuracao = obj.value;
 
 		});
@@ -119,7 +119,7 @@ $(document).ready(function(){
 		var inputs = $('#formSessao').serializeArray();
 		inputs.forEach(function(obj){
 
-			if(obj.name === 'nomeFilme')
+			if(obj.name === 'nome')
 				sessaoFilme = obj.value;
 			else if(obj.name === 'cinemaFilme')
 				sessaoCinema = obj.value;

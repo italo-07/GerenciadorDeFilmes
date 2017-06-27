@@ -8,20 +8,20 @@ $(document).ready(function(){
 
 });
 
-function cadastrarFilme(nomeFilme, nomeOriginal, cartaz, descricao, cinemaFilme, classificacao, genero, duracao){
+function cadastrarFilme(nome, nomeoriginal, imagem, descricao, cinemas, idade, genero, tempo){
 	firebase
 	.database()
-	.ref('filme')
+	.ref('filmes')
 	.push()
 	.set({
-			"nomeFilme" : nomeFilme,
-			"nomeOriginal" : nomeOriginal,
-			"cartaz" : cartaz,
+			"nome" : nome,
+			"nome-original" : nomeoriginal,
+			"imagem" : imagem,
 			"sinopse" : descricao,
-			"cinema" : cinemaFilme,
-			"classificacao" : classificacao,
+			"cinemas" : cinemas,
+			"idade" : idade,
 			"genero" : genero,
-			"duracao" : duracao
+			"tempo" : tempo
 		});
 	
 	console.log('FILME - cadastrado com sucesso!');
@@ -30,7 +30,7 @@ function cadastrarFilme(nomeFilme, nomeOriginal, cartaz, descricao, cinemaFilme,
 function excluirFilme(key){
 	firebase
 	.database()
-	.ref('filme/' + key)
+	.ref('filmes/' + key)
 	.remove();
 	
 	console.log('FILME - excluido com sucesso!');
@@ -97,8 +97,8 @@ function iniciarListenersFilmes(){
 	 // *
 	firebase
 	.database()
-	.ref('filme')
-	.orderByChild("nomeFilme")
+	.ref('filmes')
+	.orderByChild("nome")
 	.on("child_added", function(filme) {
 		console.log("Aqui");
 
@@ -107,11 +107,11 @@ function iniciarListenersFilmes(){
 
 		var component =
                 `<tr id='${filmeObj.id}'>`+
-                  "<td>" + filmeObj.nomeFilme + "</td>"  +
+                  "<td>" + filmeObj.nome + "</td>"  +
                   "<td>" + filmeObj.cinema + "</td>"  +
-                  "<td>" + filmeObj.classificacao + "</td>"+
+                  "<td>" + filmeObj.idade + "</td>"+
                   "<td>" + filmeObj.genero + "</td>"  +
-                  "<td>" + filmeObj.duracao + "</td>"  +
+                  "<td>" + filmeObj.tempo + "</td>"  +
                   "<td>"+
                       "<a class='btn btn-info' href='#''>Editar</a>"+
                       "<a class='btn btn-danger' href='#'"+
@@ -129,7 +129,7 @@ function iniciarListenersFilmes(){
 	 // *
 	firebase
 	.database()
-	.ref('filme')
+	.ref('filmes')
 	.orderByChild("nome")
 	.on("child_removed", function(filme) {
 

@@ -3,12 +3,13 @@
 $(document).ready(function(){
 	
 	iniciarSelectCinemas();
+	iniciarSelectSessao();
 	iniciarListenersFilmes();
 
 
 });
 
-function cadastrarFilme(nome, nomeoriginal, imagem, descricao, cinemas, idade, genero, tempo){
+function cadastrarFilme(nome, nomeoriginal, imagem, descricao, cinemas, sessoes, idade, genero, tempo){
 	firebase
 	.database()
 	.ref('filmes')
@@ -19,6 +20,7 @@ function cadastrarFilme(nome, nomeoriginal, imagem, descricao, cinemas, idade, g
 			"imagem" : imagem,
 			"sinopse" : descricao,
 			"cinemas" : cinemas,
+			"sessoes" : sessoes,
 			"idade" : idade,
 			"genero" : genero,
 			"tempo" : tempo
@@ -89,6 +91,65 @@ function iniciarSelectCinemas(){
 	});
 
 }
+
+
+function iniciarSelectSessao(){
+	 // * Query principal que retorna os cinemas ordenados pelo nome
+	 // *
+	firebase
+	.database()
+	.ref('sessao')
+	.orderByChild("horario")
+	.on("child_added", function(sessao) {
+
+		var sessaoObj = sessao.val();
+		sessaoObj.id = sessao.key;
+
+		console.log("iniciou sessao")
+
+		var component = `<div class="item" data-value="${sessaoObj.id}">
+						 	${sessaoObj.horario}
+						 </div>`
+
+		$("#sessao").append(component);
+
+	}, function (errorObject){
+		console.log("The read failed: " + errorObject.code);
+	});
+	
+	 // * Query principal que retorna os cinemas exluidos ordenados pelo nome
+	 // *
+	firebase
+	.database()
+	.ref('sessao')
+	.orderByChild("horario")
+	.on("child_removed", function(sessao) {
+		
+		$(`option[value='${sessao.key}']`).remove();
+
+	}, function (errorObject){
+		console.log("The read failed: " + errorObject.code);
+	});
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function iniciarListenersFilmes(){
 	//Lista Filmes

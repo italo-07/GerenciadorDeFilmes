@@ -59,6 +59,7 @@ $(document).ready(function(){
 		var filmeImagemCartaz;
 		var filmeSinopse;
 		var filmeCinemaNome = [];
+		var filmeSessao = [];
 		var filmeClassificacao;
 		var filmeGenero;
 		var filmeDuracao;
@@ -76,6 +77,8 @@ $(document).ready(function(){
 				filmeSinopse = obj.value;
 			else if(obj.name === 'cinemaFilme')
 				filmeCinemaNome = obj.value;
+			else if(obj.name === 'sessao')
+				filmeSessao = obj.value;
 			else if(obj.name === 'idade')
 				filmeClassificacao = obj.value;
 			else if(obj.name === 'genero')
@@ -95,7 +98,15 @@ $(document).ready(function(){
 
 		console.log(cinemas)
 
-		cadastrarFilme(filmeNome, filmeNomeOriginal, filmeImagemCartaz, filmeSinopse, cinemas, filmeClassificacao, filmeGenero, filmeDuracao);
+		var arrayfilmeSessao = filmeSessao.split(',');
+		
+		var sessoes = {};
+
+		arrayfilmeSessao.forEach(function(obj){
+			sessoes[obj] = true
+		});
+
+		cadastrarFilme(filmeNome, filmeNomeOriginal, filmeImagemCartaz, filmeSinopse, cinemas, sessoes, filmeClassificacao, filmeGenero, filmeDuracao);
 
 		alert("FILME - Cadastrado com Sucesso");
 	});

@@ -54,8 +54,8 @@ function iniciarSelectFilmes(){
 	 // *
 	firebase
 	.database()
-	.ref('filme')
-	.orderByChild("nomeFilme")
+	.ref('filmes')
+	.orderByChild("nome")
 	.on("child_added", function(filme) {
 
 		var filmeObj = filme.val();
@@ -64,10 +64,10 @@ function iniciarSelectFilmes(){
 		console.log("iniciou sessao")
 
 		var component = `<option value="${filmeObj.id}">
-								${filmeObj.nomeFilme}
+								${filmeObj.nome}
 						 </option>`;
 
-		$("#nomeFilme").append(component);
+		$("#nome").append(component);
 
 	}, function (errorObject){
 		console.log("The read failed: " + errorObject.code);
@@ -77,8 +77,8 @@ function iniciarSelectFilmes(){
 	 // *
 	firebase
 	.database()
-	.ref('filme')
-	.orderByChild("nomeFilme")
+	.ref('filmes')
+	.orderByChild("nome")
 	.on("child_removed", function(filme) {
 		
 		$(`option[value='${filme.key}']`).remove();
